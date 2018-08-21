@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>头部-有点</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/css.css" />
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+
+</head>
+<body>
+	<div id="pageAll">
+		<div class="pageTop">
+			<div class="page">
+				<img src="__PUBLIC__/Admin/img/coin02.png" /><span><a href="#">首页</a>&nbsp;-&nbsp;<a
+					href="#">公共管理</a>&nbsp;-</span>&nbsp;意见管理
+			</div>
+		</div>
+		<div class="page ">
+			<!-- 上传广告页面样式 -->
+                        <form action="" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="{$cateres.id}" />
+			<div class="banneradd bor">
+				
+				<div class="baBody">
+					<div class="bbD">
+			        <th width="120"><i class="require-red"></i>上级分类：</th>
+                                <td>
+                                 <select name="parentid" id="catid" class="required">
+                                    <option value="0">顶级栏目</option>
+                                    <volist name="cates" id="vo">
+                                    <option <if condition="$vo['id'] eq $cateres['id']">style="display:none;"</if> value="{$vo.id}"><if condition="$vo['parentid'] neq 0">|</if><?php echo str_repeat('-', $vo['level']*8);?>{$vo.name}</option>
+                                    </volist>
+                                </select>
+                               </td>
+					</div>
+					<div class="bbD">
+					   栏目名称：<input type="text" class="input1" name="name" value="{$cateres.name}"/>
+					</div>
+                                    
+                                    
+                                    
+                                    <div class="bbD">
+		                栏目级别：
+                                 <input class="common-text" name="class" size="50" value="1" <if condition="$cateres['class'] eq 1">checked="checked"</if> type="radio">顶级
+                                <input class="common-text" name="class" size="50" value="2" type="radio" <if condition="$cateres['class'] eq 2">checked="checked"</if>>二级
+                                <input class="common-text" name="class" size="50" value="3" type="radio" <if condition="$cateres['class'] eq 3">checked="checked"</if>>三级
+					</div>
+                                    
+					
+					
+					
+					<div class="bbD">
+						<p class="bbDP">
+							<button class="btn_ok btn_yes" href="#">提交</button>
+							<a class="btn_ok btn_no" href="#">取消</a>
+						</p>
+					</div>
+				</div>
+			</div>
+                        </form>
+			<!-- 上传广告页面样式end -->
+		</div>
+	</div>
+
+</body>
+</html>
